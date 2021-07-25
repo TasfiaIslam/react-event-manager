@@ -7,9 +7,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="w-9/12 h-screen mx-auto bg-gray-200">
+      <div className="p-6 w-9/12 h-screen mx-auto bg-gray-50">
         <AddEvent />
-        <EventList />
+        {/* <EventList /> */}
       </div>
     </div>
   );
