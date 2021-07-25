@@ -1,7 +1,39 @@
-const EventList = () => {
+const EventList = ({events}) => {
     return ( 
-        <div>
-            EventList
+        <div className="p-4 shadow-md w-3/5 mx-auto bg-gray-600 mt-6">
+                <div className="w-9/12 mx-auto">
+                    <h2 className="mt-2 mb-6 ml-4 text-2xl text-gray-50 font-semibold">All Events</h2>
+                </div>
+                {events.map((event) => (
+                    <div key={event.id} className="bg-red-50 mb-4 h-32 rounded-l-full shadow-md flex">
+                        <div className="w-1/3">
+                            <img src={event.photo} className="object-cover h-32 rounded-l-full"/>
+                        </div>
+                        <div className="w-2/3 flex flex-col space-y-2 justify-center">
+                            <p className="text-lg font-semibold text-pink-400">{event.name}</p>
+                            <p className="text-gray-400 font-semibold flex space-x-2">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </span> 
+                                <span className="">{event.date}</span>
+                            </p>
+                            <p className="text-indigo-400 flex space-x-2">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                        <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span>
+                                    {event.notes}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                ))}
+       
         </div>
      );
 }
