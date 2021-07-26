@@ -2,30 +2,35 @@ import './App.css';
 import Header from "./Header";
 import EventList from "./EventList";
 import AddEvent from "./AddEvent";
+import { useEffect, useState } from 'react';
 
 function App() {
-  const events = [
-    {
-      id: 1,
-      name: "Birthday Party",
-      date: "26th July 8 pm",
-      notes: "Buy a gift",
-      photo: "https://i.pinimg.com/originals/ef/59/2b/ef592b7ee3672d9c7677e507919100b6.jpg"
-    },
-    {
-      id: 2,
-      name: "Hangout",
-      date: "29th July 5 pm",
-      notes: "Select a place",
-      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqHL6pVxy-VQvCmjXCh-tvoyLiksjTONfX4g&usqp=CAU"
+  const LOCAL_STORAGE_KEY = "events";
+  const [events, setEvents] = useState([]);
+
+
+  const addEventHandler = (event) => {
+    setEvents([...events, event])
+    console.log(event)
+  };
+
+  useEffect( () => {
+    const retrieveEvents =  JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if(retrieveEvents){
+      setEvents(retrieveEvents);
     }
-  ]
+  },[]);
+
+  useEffect( () => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(events));
+  },[events]);
+
   return (
     <div className="App">
       <Header />
       <div className="p-6 w-9/12 min-h-screen mx-auto bg-gray-200">
-        <AddEvent />
-        <EventList events={events} />
+        <AddEvent addEventHandler={ addEventHandler }/>
+        <EventList events={ events } />
       </div>
     </div>
   );
