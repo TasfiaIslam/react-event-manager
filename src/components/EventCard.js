@@ -1,10 +1,11 @@
-const EventCard = ({event}) => {
+
+const EventCard = ({event, deleteEventHandler}) => {
     return ( 
         <div className="flex">
             <div className="w-1/3">
                 <img src={event.photo} className="object-cover h-32 rounded-l-full"/>
             </div>
-            <div className="w-2/3 flex flex-col space-y-2 justify-center">
+            <div className="w-2/3 flex flex-col space-y-2 justify-center relative">
                 <p className="text-lg font-semibold text-pink-400">{event.name}</p>
                 <p className="text-gray-400 font-semibold flex space-x-2">
                     <span>
@@ -25,6 +26,11 @@ const EventCard = ({event}) => {
                         {event.notes}
                     </span>
                 </p>
+                <div className="absolute top-0 right-1" onClick={() => deleteEventHandler(event.id)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>
             </div>
         </div>
      );

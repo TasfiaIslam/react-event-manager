@@ -18,15 +18,14 @@ class AddEvent extends React.Component{
 
     add = (e) => {
         e.preventDefault();
-        if(this.state.name === "" || this.state.date === "" || this.state.notes === "" || this.state.photo === null){
+        if(this.state.name === "" || this.state.date === "" || this.state.notes === ""){
             alert("All the fields are mandatory!!");
             return;
         }
-        this.props.addEventHandler(this.state);
 
-        e.target.value = null;
+        this.props.addEventHandler(this.state);
         
-        this.setState({name: "", date: "", notes: "", photo: e.target.value})
+        this.setState({name: "", date: "", notes: "", photo: null})
         console.log(this.state);
     }
 

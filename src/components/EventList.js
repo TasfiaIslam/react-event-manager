@@ -1,6 +1,9 @@
 import EventCard from "./EventCard"
 
-const EventList = ({events}) => {
+const EventList = ({events, getEventId}) => {
+    const deleteEventHandler = (id) => {
+        getEventId(id);
+    }
     return ( 
         <div className="p-4 shadow-md w-3/5 mx-auto bg-gray-600 mt-6">
                 <div className="w-9/12 mx-auto">
@@ -8,7 +11,7 @@ const EventList = ({events}) => {
                 </div>
                 {events.map((event) => (
                     <div key={event.id} className="bg-red-50 mb-4 h-32 rounded-l-full shadow-md ">
-                        <EventCard event={event}/>
+                        <EventCard event={event} deleteEventHandler={ deleteEventHandler }/>
                     </div>
                 ))}
        
