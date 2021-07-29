@@ -27,7 +27,7 @@ class AddEvent extends React.Component{
 
     render(){
         return(
-            <div className="p-6 shadow-md w-3/5 mx-auto bg-gray-600">
+            <div className="p-6 shadow-md rounded-xl w-3/5 mx-auto bg-gray-600">
                 <div className="pt-2 pb-4 my-4 w-9/12 mx-auto">
                     <h2 className="mt-0 mb-4 ml-4 text-2xl text-red-200 font-semibold">Add Event</h2>
                     <form className="flex flex-col" onSubmit={this.add}>

@@ -7,7 +7,7 @@ const EventCard = ({event, deleteEventHandler}) => {
                 <img src={event.photo} className="object-cover h-32 w-36 rounded-l-full"/>
             </div>
             <div className="w-2/3 flex flex-col space-y-2 justify-center relative">
-                <Link to={`/event/${event.id}`}>
+                <Link to={{pathname: `/event/${event.id}`, state:{event}}}>
                     <p className="text-lg font-semibold text-pink-400">{event.name}</p>
                 </Link>
                 <p className="text-gray-400 font-semibold flex space-x-2">

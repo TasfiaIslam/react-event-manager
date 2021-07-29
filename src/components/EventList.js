@@ -6,7 +6,7 @@ const EventList = ({events, getEventId}) => {
         getEventId(id);
     }
     return ( 
-        <div className="p-4 shadow-md w-3/5 mx-auto bg-gray-600 mt-6 justify-center">
+        <div className="p-4 shadow-md w-3/5  mx-auto rounded-xl bg-gray-600 mt-6 justify-center">
                 <div className="mt-2 mb-4 flex justify-between items-center">
                     <h2 className="ml-14 text-2xl text-gray-50 font-semibold">All Events</h2>
                     <Link to="/add">

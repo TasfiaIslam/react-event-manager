@@ -2,6 +2,7 @@ import './App.css';
 import Header from "./Header";
 import EventList from "./EventList";
 import AddEvent from "./AddEvent";
+import EventDetail from './EventDetail';
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { uuid } from 'uuidv4';
@@ -50,6 +51,7 @@ function App() {
               path="/add"  
               render={(props) => (<AddEvent {...props} addEventHandler={ addEventHandler }/>) } 
             />
+            <Route path="/event/:id" component={EventDetail} />
           </Switch>
           </Router>
       </div> 
