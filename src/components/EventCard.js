@@ -1,12 +1,15 @@
+import { Link } from "react-router-dom";
 
 const EventCard = ({event, deleteEventHandler}) => {
     return ( 
         <div className="flex">
             <div className="w-1/3">
-                <img src={event.photo} className="object-cover h-32 rounded-l-full"/>
+                <img src={event.photo} className="object-cover h-32 w-36 rounded-l-full"/>
             </div>
             <div className="w-2/3 flex flex-col space-y-2 justify-center relative">
-                <p className="text-lg font-semibold text-pink-400">{event.name}</p>
+                <Link to={`/event/${event.id}`}>
+                    <p className="text-lg font-semibold text-pink-400">{event.name}</p>
+                </Link>
                 <p className="text-gray-400 font-semibold flex space-x-2">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

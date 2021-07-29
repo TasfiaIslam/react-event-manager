@@ -3,6 +3,7 @@ import Header from "./Header";
 import EventList from "./EventList";
 import AddEvent from "./AddEvent";
 import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { uuid } from 'uuidv4';
 
 function App() {
@@ -36,11 +37,22 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header /> 
       <div className="p-6 w-9/12 min-h-screen mx-auto bg-gray-200">
-        <AddEvent addEventHandler={ addEventHandler }/>
-        <EventList events={ events } getEventId={ removeEventHandler }/>
-      </div>
+        <Router>
+          <Switch>
+            <Route 
+              path="/" 
+              exact 
+              render={(props) => (<EventList {...props} events={ events } getEventId={ removeEventHandler }/>) } 
+            />
+            <Route 
+              path="/add"  
+              render={(props) => (<AddEvent {...props} addEventHandler={ addEventHandler }/>) } 
+            />
+          </Switch>
+          </Router>
+      </div> 
     </div>
   );
 }
