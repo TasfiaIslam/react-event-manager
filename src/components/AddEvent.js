@@ -6,6 +6,7 @@ class AddEvent extends React.Component{
         name: "",
         date: "",
         notes: "",
+        priority: "no",
         photo: null
     }
 
@@ -57,6 +58,19 @@ class AddEvent extends React.Component{
                                     id="notes" placeholder="Notes" 
                                     className="w-2/3 focus:outline-none focus:shadow-outline" 
                                 />
+                        </div>
+                        <div className="my-2 flex" value={this.state.priority}
+                                    onChange={(e) => this.setState({priority: e.target.value})}
+                        >
+                            <label className="mx-4 text-gray-50 w-1/3 ">Priority</label>
+                            <label className="inline-flex items-center text-gray-50">
+                                <input type="radio" name="priority" value="yes" />
+                                <span className="ml-2">Yes</span>
+                            </label>
+                            <label className="inline-flex items-center text-gray-50 ml-6">
+                                <input type="radio" name="priority" value="no" />
+                                <span className="ml-2">No</span>
+                            </label>
                         </div>
                         <div className="my-2 flex">
                             <label className="mx-4 text-gray-50 w-1/3 ">Image</label>

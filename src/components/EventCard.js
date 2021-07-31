@@ -7,9 +7,12 @@ const EventCard = ({event, deleteEventHandler}) => {
                 <img src={event.photo} className="object-cover h-32 w-36 rounded-l-full"/>
             </div>
             <div className="w-2/3 flex flex-col space-y-2 justify-center relative">
-                <Link to={{pathname: `/event/${event.id}`, state:{event}}}>
-                    <p className="text-lg font-semibold text-pink-400">{event.name}</p>
-                </Link>
+                <div className="flex flex-row">
+                    <Link to={{pathname: `/event/${event.id}`, state:{event}}}>
+                        <p className="text-lg font-semibold text-pink-400">{event.name}</p>
+                    </Link>
+                    {event.priority == 'yes'? <span className="bg-green-50 hover:bg-indigo-200 text-green-400 hover:text-white text-sm font-semibold rounded-full px-2 py-1 mt-1 ml-4">important</span>: null }
+                </div>
                 <p className="text-gray-400 font-semibold flex space-x-2">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
